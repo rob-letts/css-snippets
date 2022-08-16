@@ -1,0 +1,71 @@
+/* These utilities are optional and not required for resetting purpose. */
+
+/* Light Mode / Dark Mode */
+:root {
+	--color-bg: var(--dark-colour, #000);
+	--color-fg: var(--light-colour, #fff);
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-bg: var(--light-colour, #fff);
+		--color-fg: var(--dark-colour, #000);
+	}
+}
+
+/* Default focus */
+:focus {
+	outline: 1px solid var(--outline, #000);
+	outline-offset: 0.25rem;
+}
+
+*::selection {
+	color: var(--color-bg);
+	color: var(--color-fg);
+}
+
+/* Parent wrapper layout utilities */
+.spacing > * + * {
+	margin-block-start: var(--spacing, 1rem);
+}
+
+.text-wrapper {
+	width: min(65ch, 100vw - 2rem);
+}
+
+.ram {
+	display: grid;
+	grid-gap: var(--ram-gap, 1rem);
+	grid-template-columns: repeat(auto-fit, minmax(var(--ram-min, 150px), 1fr));
+}
+
+.center-items {
+	display: grid;
+	place-items: center;
+}
+
+.full-bleed {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+}
+
+.banner-bleed {
+	background: var(--color-bg);
+	box-shadow: 0 0 0 100vmax var(--color-bg);
+	clip-path: inset(0 -100vmax);
+	color: var(--color-fg);
+}
+
+/* Context dependent util for custom list item alignment */
+
+.indent-list-items {
+	list-style-position: outside;
+}
+
+.indent-list-items > li:nth-child(-n + 9) {
+	text-indent: var(--list-indentation-sm, -2ch);
+}
+
+.indent-list-items > li:nth-child(n + 10) {
+	text-indent: var(--list-indentation-md, -3ch);
+}
