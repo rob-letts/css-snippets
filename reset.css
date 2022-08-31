@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-*  {
+* {
   padding: 0;
   margin: 0;
 }
@@ -17,45 +17,29 @@ body {
 body {
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-img,
-picture, 
-video, 
-iframe,
-svg {
-  max-width: 100%;
-  display: block;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
 }
 
 img {
   object-fit: cover;
 }
 
-p, 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6, 
-li, 
-dl, 
-dt, 
-blockquote {
+:where(ul, ol) {
+  list-style: none;
+}
+
+:where(img, picture, video, iframe, svg) {
+  max-inline-size: 100%;
+  display: block;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote) {
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
-input,
-button,
-textarea,
-select {
+:where(input, button, textarea, select) {
   font: inherit;
 }
 
