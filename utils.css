@@ -21,7 +21,7 @@
 
 *::selection {
 	color: var(--color-bg);
-	color: var(--color-fg);
+	background-color: var(--color-fg);
 }
 
 /* Parent wrapper layout utilities */
