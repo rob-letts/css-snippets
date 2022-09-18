@@ -1,0 +1,48 @@
+/* These utilities are optional and not required for resetting purpose. */
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:map';
+
+@function get-breakpoint($breakpoint-name, $breakpoints-map) {
+  $result: map.get($breakpoints-map, $breakpoint-name);
+
+  @if ($result == null) {
+    @error 'Incorrect breakpoint name supplied.';
+  }
+
+  @return $result;
+}
+
+ @mixin for-size($bp-size) {
+  $property: functions.ternary('max', 'max-width', 'min-width');
+
+  @media (#{$property}: getters.get-breakpoint($bp-size)) {
+    @content;
+  }
+}
+
+@function lists-to-map($keys, $values) {
+  @if (list.length($keys) != list.length($values)) {
+    @error "The two lists provided are not of equal length.";
+  }
+
+  $map: ();
+  @for $i from 1 through list.length($keys) {
+    $key: list.nth($keys, $i);
+    $value: list.nth($values, $i);
+    $map: map.merge($map, ($key: $value));
+  }
+  @return $map;
+}
+
+@function ternary($condition, $valueIfTrue, $valueIfFalse) {
+  @if (type-of($condition) != bool) {
+    @error "The condition provided does not have a type of bool.";
+  }
+
+  @if ($condition) {
+    @return $valueIfTrue;
+  }
+  @return $valueIfFalse;
+}
