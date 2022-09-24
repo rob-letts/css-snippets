@@ -2,7 +2,6 @@
 
 @use 'sass:list';
 @use 'sass:map';
-@use 'sass:map';
 
 @function get-breakpoint($breakpoint-name, $breakpoints-map) {
   $result: map.get($breakpoints-map, $breakpoint-name);
