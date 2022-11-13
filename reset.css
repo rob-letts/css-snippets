@@ -9,16 +9,16 @@
   margin: 0;
 }
 
-body {
-  height: 100%;
-}
-
 html {
   height: 100%;
   line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
+}
+
+body {
+  height: 100%;
 }
 
 img {
