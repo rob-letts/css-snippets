@@ -40,6 +40,5 @@
     @error "The condition provided does not have a type of bool.";
   }
 
-  $result: @if ($condition, $valueIfTrue, $valueIfFalse);
-  @return $result;
+  @return if($condition, $valueIfTrue, $valueIfFalse)
 }
