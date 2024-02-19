@@ -34,11 +34,3 @@
   }
   @return $map;
 }
-
-@function ternary($condition, $valueIfTrue, $valueIfFalse) {
-  @if (type-of($condition) != bool) {
-    @error "The condition provided does not have a type of bool.";
-  }
-
-  @return if($condition, $valueIfTrue, $valueIfFalse)
-}
