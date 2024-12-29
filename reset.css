@@ -7,18 +7,22 @@
 * {
   padding: 0;
   margin: 0;
+  font: inherit;
 }
 
 html {
-  height: 100%;
   line-height: 1.5;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  block-size: 100%;
+  color-scheme: dark light;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  hanging-punctuation: first last;
   text-rendering: optimizeSpeed;
 }
 
 body {
-  height: 100%;
+  block-size: 100%;
+  min-height: 100svh;
 }
 
 img {
@@ -30,17 +34,29 @@ img {
 }
 
 :where(img, picture, video, iframe, svg) {
-  max-inline-size: 100%;
   display: block;
+  max-inline-size: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
 }
 
 :where(p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote) {
-  overflow-wrap: break-word;
   hyphens: auto;
+  overflow-wrap: break-word;
 }
 
-:where(input, button, textarea, select) {
-  font: inherit;
+:where(p, li, figcaption) {
+  max-inline-size: 65ch;
+  text-wrap: pretty;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
 }
 
 @media (prefers-reduced-motion) {
@@ -53,7 +69,7 @@ img {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
