@@ -29,6 +29,12 @@ img {
   object-fit: cover;
 }
 
+a:focus-visible {
+  outline-offset: 0.25em;
+  outline-width: 0.25em;
+  outline-color: currentColor;
+}
+
 :where(ul, ol) {
   list-style: none;
 }
@@ -56,6 +62,10 @@ img {
   :has(:target) {
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
+  }
+
+   @view-transition {
+    navigation: auto;
   }
 }
 
