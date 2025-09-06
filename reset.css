@@ -8,16 +8,18 @@
   padding: 0;
   margin: 0;
   font: inherit;
+  appearance: none;
 }
 
 html {
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
   block-size: 100%;
   color-scheme: dark light;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
   hanging-punctuation: first last;
   text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
